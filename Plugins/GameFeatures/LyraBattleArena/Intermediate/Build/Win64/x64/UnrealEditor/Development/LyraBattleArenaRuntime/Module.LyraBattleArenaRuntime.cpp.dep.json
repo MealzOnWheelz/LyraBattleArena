@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\ez\\documents\\unreal projects\\unreal\\lyrastartergame\\plugins\\gamefeatures\\lyrabattlearena\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\lyrabattlearenaruntime\\module.lyrabattlearenaruntime.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\ez\\documents\\unreal projects\\unreal\\engine\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\ez\\documents\\unreal projects\\unreal\\lyrastartergame\\plugins\\gamefeatures\\lyrabattlearena\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\lyrabattlearenaruntime\\definitions.lyrabattlearenaruntime.h",
+            "c:\\users\\ez\\documents\\unreal projects\\unreal\\lyrastartergame\\plugins\\gamefeatures\\lyrabattlearena\\source\\lyrabattlearenaruntime\\private\\lyrabattlearenaruntimemodule.cpp",
+            "c:\\users\\ez\\documents\\unreal projects\\unreal\\lyrastartergame\\plugins\\gamefeatures\\lyrabattlearena\\source\\lyrabattlearenaruntime\\public\\lyrabattlearenaruntimemodule.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

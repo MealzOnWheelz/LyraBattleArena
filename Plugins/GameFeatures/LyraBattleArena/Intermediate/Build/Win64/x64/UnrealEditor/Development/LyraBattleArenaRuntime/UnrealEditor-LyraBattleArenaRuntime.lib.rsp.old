@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-LyraBattleArenaRuntime.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\Module.LyraBattleArenaRuntime.cpp.obj"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Default.rc2.res"
+/OUT:"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\UnrealEditor-LyraBattleArenaRuntime.lib"

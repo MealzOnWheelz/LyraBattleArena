@@ -1,0 +1,1 @@
+#include "C:/Users/EZ/Documents/Unreal Projects/Unreal/LyraStarterGame/Plugins/GameFeatures/LyraDockableTags/Source/LyraDockableTagsRuntime/Private/LyraDockableTagsWidget.h"

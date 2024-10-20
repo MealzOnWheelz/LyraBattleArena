@@ -1,0 +1,8 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.LyraBattleArenaRuntime.cpp.obj": [
+			"LyraBattleArenaRuntimeModule.cpp.obj"
+		]
+	}
+}

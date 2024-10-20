@@ -1,0 +1,8 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.LyraDockableTagsRuntime.cpp.obj": [
+			"LyraDockableTagsRuntimeModule.cpp.obj"
+		]
+	}
+}
