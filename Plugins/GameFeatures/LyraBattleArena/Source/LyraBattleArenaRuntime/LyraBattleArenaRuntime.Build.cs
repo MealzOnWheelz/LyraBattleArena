@@ -26,6 +26,7 @@ public class LyraBattleArenaRuntime : ModuleRules
 			new string[]
 			{
 				"Core",
+				"LyraGame",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -38,6 +39,12 @@ public class LyraBattleArenaRuntime : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"GameplayAbilities",
+				"GameplayTags",
+				"Niagara",
+				"StructUtils",
+				"UnrealEd",
+				"ModularGameplay", 
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

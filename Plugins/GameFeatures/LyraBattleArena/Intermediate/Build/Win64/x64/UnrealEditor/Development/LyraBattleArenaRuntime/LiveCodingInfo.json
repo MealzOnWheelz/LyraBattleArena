@@ -2,7 +2,15 @@
 	"RemapUnityFiles": 
 	{
 		"Module.LyraBattleArenaRuntime.cpp.obj": [
-			"LyraBattleArenaRuntimeModule.cpp.obj"
+			"LyraBattleArenaAbilityData.gen.cpp.obj",
+			"LyraBattleArenaAttributeSet.gen.cpp.obj",
+			"LyraBattleArenaIconMaker.gen.cpp.obj",
+			"LyraBattleArenaRuntime.init.gen.cpp.obj",
+			"LyraBattleArenaRuntimeModule.cpp.obj",
+			"LyraBattleArenaAbilityData.cpp.obj",
+			"LyraBattleArenaAttributeSet.cpp.obj",
+			"LyraBattleArenaIconMaker.cpp.obj",
+			"LyraBattleArenaLockedCamera.cpp.obj"
 		]
 	}
 }

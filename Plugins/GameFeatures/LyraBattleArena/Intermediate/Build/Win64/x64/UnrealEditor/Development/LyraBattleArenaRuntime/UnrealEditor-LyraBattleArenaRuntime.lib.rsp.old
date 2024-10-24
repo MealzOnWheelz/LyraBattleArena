@@ -6,7 +6,10 @@
 /NAME:"UnrealEditor-LyraBattleArenaRuntime.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\Module.LyraBattleArenaRuntime.cpp.obj"
+"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\LyraBattleArenaAbilityData.cpp.obj"
+"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\LyraBattleArenaAttributeSet.cpp.obj"
+"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\LyraBattleArenaLockedCamera.cpp.obj"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Default.rc2.res"
 /OUT:"C:\Users\EZ\Documents\Unreal Projects\Unreal\LyraStarterGame\Plugins\GameFeatures\LyraBattleArena\Intermediate\Build\Win64\x64\UnrealEditor\Development\LyraBattleArenaRuntime\UnrealEditor-LyraBattleArenaRuntime.lib"
