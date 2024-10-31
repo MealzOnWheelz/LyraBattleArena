@@ -6,11 +6,11 @@
 			"LyraBattleArenaAttributeSet.gen.cpp.obj",
 			"LyraBattleArenaIconMaker.gen.cpp.obj",
 			"LyraBattleArenaRuntime.init.gen.cpp.obj",
+			"LyraBattleArenaIconMaker.cpp.obj",
+			"LyraBattleArenaLockedCamera.cpp.obj",
 			"LyraBattleArenaRuntimeModule.cpp.obj",
 			"LyraBattleArenaAbilityData.cpp.obj",
-			"LyraBattleArenaAttributeSet.cpp.obj",
-			"LyraBattleArenaIconMaker.cpp.obj",
-			"LyraBattleArenaLockedCamera.cpp.obj"
+			"LyraBattleArenaAttributeSet.cpp.obj"
 		]
 	}
 }

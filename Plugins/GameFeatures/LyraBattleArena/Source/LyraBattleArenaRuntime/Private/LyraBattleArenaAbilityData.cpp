@@ -4,7 +4,7 @@
 #include "LyraBattleArenaAbilityData.h"
 #include "Net/UnrealNetwork.h"
 #include "AbilitySystemComponent.h"
-#include "LyraBattleArenaAttributeSet.h"
+
 
 
 

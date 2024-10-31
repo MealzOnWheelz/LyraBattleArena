@@ -7,6 +7,7 @@
 #include "InstancedStruct.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "Engine/DataTable.h"
+#include "LyraBattleArenaAttributeSet.h"
 #include "LyraBattleArenaAbilityData.generated.h"
 
 UENUM(BlueprintType)
@@ -22,7 +23,6 @@ enum class ETraceType : uint8
 
 };
 
-
 UENUM(BlueprintType)
 enum class ERootMotionDirection : uint8
 {
@@ -32,9 +32,18 @@ enum class ERootMotionDirection : uint8
 
 };
 
+UENUM(BlueprintType)
+enum class EInputTriggerType : uint8
+{
+	Channel			UMETA(DisplayName = "Channel"),
+	Combo			UMETA(DisplayName = "Combo"),
+	Instant			UMETA(DisplayName = "Instant"),
+	Hold			UMETA(DisplayName = "Hold"),
+	HoldAndRelease	UMETA(DisplayName = "HoldAndRelease"),
+	Passive			UMETA(DisplayName = "Passive"),
+	Toggle			UMETA(DisplayName = "Toggle"),
 
-
-
+};
 
 USTRUCT(BlueprintType)
 struct FGameplayAbilityData
@@ -43,20 +52,32 @@ struct FGameplayAbilityData
 
 public:
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data")
-	TArray<TSoftObjectPtr<UAnimMontage>> GameplayAbilityMontages;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Widgets")
+	FText AbilityDescription;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data")
-	float GameplayAbilityMontageRate;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data")
-	float GameplayAbilityCooldown;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Widgets")
+	TSoftObjectPtr<UTexture2D> AbilityIcon;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data")
 	TSoftClassPtr<UGameplayEffect> GameplayAbilityGameplayEffect;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data")
 	TSoftClassPtr<AActor> GameplayAbilityActor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability Data|Gameplay Ability Data")
+	EInputTriggerType InputTriggerType = EInputTriggerType::Instant;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data", meta = (EditCondition = "InputTriggerType == EInputTriggerType::Channel || InputTriggerType == EInputTriggerType::Combo || InputTriggerType == EInputTriggerType::Instant || InputTriggerType == EInputTriggerType::Hold || InputTriggerType == EInputTriggerType::HoldAndRelease", EditConditionHides))
+	TSoftObjectPtr<UAnimMontage> AnimMontage1;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data", meta = (EditCondition = "InputTriggerType == EInputTriggerType::Channel || InputTriggerType == EInputTriggerType::Combo || InputTriggerType == EInputTriggerType::HoldAndRelease", EditConditionHides))
+	TSoftObjectPtr<UAnimMontage> AnimMontage2;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data", meta = (EditCondition = "InputTriggerType == EInputTriggerType::Combo", EditConditionHides))
+	TSoftObjectPtr<UAnimMontage> AnimMontage3;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Gameplay Ability Data", meta = (EditCondition = "InputTriggerType == EInputTriggerType::Channel || InputTriggerType == EInputTriggerType::Combo || InputTriggerType == EInputTriggerType::Hold || InputTriggerType == EInputTriggerType::HoldAndRelease", EditConditionHides))
+	float InputThresholdTime;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability Data|Gameplay Ability Data")
 	ETraceType TraceType;
@@ -85,12 +106,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability Data|Gameplay Ability Data", meta = (EditCondition = "TraceType == ETraceType::MultiSphere || TraceType == ETraceType::MultiBox", EditConditionHides))
 	int32 MaxTargets;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Widgets")
-	FText AbilityDescription;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data|Widgets")
-	TSoftObjectPtr<UTexture2D> AbilityIcon;
-
 };
 
 USTRUCT(BlueprintType)
@@ -99,6 +114,12 @@ struct FDefaultCharacterData
 	GENERATED_BODY()
 
 public:
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Data|Attribute Data")
+	TMap<FGameplayTag, float> OverrideMagnitudeMap;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Data|Attribute Data")
+	TMap<FGameplayTag, TSoftClassPtr<UGameplayEffect>> OverrideGameplayEffectMap;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Data|Animation Data")
 	TSoftClassPtr<UAnimInstance> DefaultAnimClassLayer;
@@ -129,6 +150,9 @@ public:
 	FInstancedStruct CharacterInstanceDataInstance;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Base Ability Data", meta = (BaseStruct = "FGameplayAbilityData"))
+	FInstancedStruct PassiveDataInstance;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Base Ability Data", meta = (BaseStruct = "FGameplayAbilityData"))
 	FInstancedStruct BasicAttackDataInstance;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Base Ability Data", meta = (BaseStruct = "FGameplayAbilityData"))
@@ -142,7 +166,7 @@ public:
 
 };
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterIDSet, int32, CharacterID);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterIDSet, float, CharacterID);
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class ULyraBattleArenaAbilityData : public UControllerComponent
@@ -166,10 +190,5 @@ public:
 	// DataTable that holds the Ability Data
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ability Data")
 	UDataTable* CharacterDataTable;
-
-protected:
-
-
-
 
 };

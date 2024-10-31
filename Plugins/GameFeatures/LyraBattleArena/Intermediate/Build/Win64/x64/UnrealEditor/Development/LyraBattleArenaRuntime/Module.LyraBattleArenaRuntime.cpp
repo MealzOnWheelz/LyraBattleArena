@@ -3,4 +3,6 @@
 #include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Intermediate/Build/Win64/UnrealEditor/Inc/LyraBattleArenaRuntime/UHT/LyraBattleArenaAttributeSet.gen.cpp"
 #include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Intermediate/Build/Win64/UnrealEditor/Inc/LyraBattleArenaRuntime/UHT/LyraBattleArenaIconMaker.gen.cpp"
 #include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Intermediate/Build/Win64/UnrealEditor/Inc/LyraBattleArenaRuntime/UHT/LyraBattleArenaRuntime.init.gen.cpp"
+#include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Source/LyraBattleArenaRuntime/Private/LyraBattleArenaIconMaker.cpp"
+#include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Source/LyraBattleArenaRuntime/Private/LyraBattleArenaLockedCamera.cpp"
 #include "../../LyraStarterGame/Plugins/GameFeatures/LyraBattleArena/Source/LyraBattleArenaRuntime/Private/LyraBattleArenaRuntimeModule.cpp"
